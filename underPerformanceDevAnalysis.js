@@ -1,17 +1,39 @@
 const { employees } = require("./database");
-let name = "";
-let kinerja = 0;
 
-function getUnderPerformanceDev(performance) {
-	for (let g = 0; g < performance.length; g++) {
-		if (
-			employees[g].department == "Development" &&
-			kinerja < employees[g].performanceRating
-		) {
-			kinerja = employees[g].performanceRating
-		}
+let underPerformanceDev = []
+
+// const arraysBaru = employees.sort((a, b)=>{
+// 	return a.performanceRating - b.performanceRating;
+// })
+//
+// const arrayTerfilter = arraysBaru.filter(employees =>{
+// 	return employees.department == "Development"
+// })
+//
+// for(let j = 0; j < 2; j++) {
+// 	underPerformanceDev.push(arrayTerfilter[j].name)
+// }
+
+let arraysOfDevelopment = []
+for(let i = 0; i <employees.length; i++){
+	if(employees[i].department == "Development"){
+		arraysOfDevelopment.push({
+			nama: employees[i].name,
+			department: employees[i].department,
+			kpi : employees[i].performanceRating
+		})
 	}
-	return kinerja;
 }
+// console.log(arraysOfDevelopment.length);
+let sortedArrayDevelopment =[]
+let temp = Number.MIN_VALUE;
+for(let i = 0; i < arraysOfDevelopment.length; i++){
+	if(temp < arraysOfDevelopment[i].kpi){
+		temp = arraysOfDevelopment[i].kpi;
+	}
+}
+console.log(temp)
 
-console.log(getUnderPerformanceDev(employees));
+//bonus
+
+

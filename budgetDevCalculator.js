@@ -1,7 +1,8 @@
 const { employees } = require("./database");
-let totalSalary = 0;
+
 
 function getBudgetMDev(budget) {
+	let totalSalary = 0;
 	for (let j = 0; j < budget.length; j++) {
 		if (employees[j].department == "Development") {
 			totalSalary += employees[j].salary;
@@ -10,8 +11,21 @@ function getBudgetMDev(budget) {
 	return totalSalary;
 }
 
-console.log(getBudgetMDev(employees));
+const getBudetDevWithBuildInFunction = (arraysOfEmplyees) => {
+	let totalSallaryDev = 0
+	employees.forEach(employee => {
+		if(employee.department == "Development") {
+			totalSallaryDev += employee.salary;
+		}
+	})
+	return totalSallaryDev;
+}
+
+
+
+
+
 
 module.exports = {
-	getBudgetMDev,
+	getBudgetMDev,getBudetDevWithBuildInFunction
 };
