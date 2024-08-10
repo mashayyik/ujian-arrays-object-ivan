@@ -130,6 +130,4 @@ let listReward = [
     {name: "Star", point: 25},
 ];
 
-module.exports = {
-    videos, listReward
-}
+module.exports = [videos, listReward]

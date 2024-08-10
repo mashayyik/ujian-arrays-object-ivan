@@ -1,7 +1,7 @@
-const { videos, listReward } = require("../dataSource/database");
+const [databaseVideo, dataBasePoint] = require('../dataSource/database')
 
-let result = [];
-videos.forEach((v) => {
+let result = []
+databaseVideo.forEach((v) => {
 	let penonton = 0;
 	let point = 0;
 	penonton = v.viewers;
@@ -11,9 +11,8 @@ videos.forEach((v) => {
 	let monet = "";
 
 	v.rewards.forEach((gift) => {
-		let namaRewards = gift[0];
-		let totalRewards = gift[1];
-		let hadiahPerOrang = listReward.find((c) => {
+		let [namaRewards, totalRewards] = gift;
+		let hadiahPerOrang = dataBasePoint.find((c) => {
 			return c.name == namaRewards;
 		});
 
