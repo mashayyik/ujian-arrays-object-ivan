@@ -123,5 +123,3 @@ const hargaBahanBaku = [
     "jagungManis_3000",
     "kol_4000"
 ]
-
-module.exports = {daftarMenu, hargaBahanBaku}
